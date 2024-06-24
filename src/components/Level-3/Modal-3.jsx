@@ -6,7 +6,7 @@ const Modal3 = ({ inputs, values, closeModal, questions }) => {
       <div className="bg-white p-6 rounded shadow-lg w-auto min-w-[30rem] mx-auto">
         <h2 className="text-lg font-semibold mb-4">Submission Details</h2>
         <div className="grid grid-cols-[fit,20rem] grid-flow-col gap-2">
-          <div className="grid grid-cols-[10rem,1fr] gap-1 space-y-2 border-r-2 px-4">
+          <div className="grid grid-cols-[10rem,25rem] gap-1 border-r-2 px-4">
             {inputs.flatMap((input, index) => {
               const value = values[input];
               if (typeof value === "object") {
@@ -15,11 +15,11 @@ const Modal3 = ({ inputs, values, closeModal, questions }) => {
                   .filter(([_, v]) => v !== "")
                   .map(([subKey, subValue], subIndex) => (
                     <React.Fragment key={`${index}-${subIndex}`}>
-                      <p className="text-sm font-semibold inline-flex justify-between items-end">
+                      <p className="text-sm font-semibold inline-flex justify-between items-center">
                         <span className="capitalize">{subKey}</span>
                         <span>:</span>
                       </p>
-                      <p className="text-sm ps-4 inline-flex justify-start items-end">
+                      <p className="text-sm ps-4 inline-flex justify-start items-center">
                         {subValue}
                       </p>
                     </React.Fragment>
@@ -28,11 +28,11 @@ const Modal3 = ({ inputs, values, closeModal, questions }) => {
                 // Handle top-level fields
                 return (
                   <React.Fragment key={index}>
-                    <p className="text-sm font-semibold inline-flex justify-between items-end">
+                    <p className="text-sm font-semibold inline-flex justify-between items-center">
                       <span className="capitalize">{input}</span>
                       <span>:</span>
                     </p>
-                    <p className="text-sm ps-4 inline-flex justify-start items-end">
+                    <p className="text-sm ps-4 inline-flex justify-start items-center">
                       {value}
                     </p>
                   </React.Fragment>
@@ -42,7 +42,7 @@ const Modal3 = ({ inputs, values, closeModal, questions }) => {
             })}
           </div>
 
-          <div className="w-72 px-2">
+          <div className="w-72 px-4">
             <h1 className="text-xl font-semibold mb-4">Questions</h1>
             {questions.map((question, index) => (
               <React.Fragment key={index}>
